@@ -1,0 +1,20 @@
+#top-nav {
+  background-color: whitesmoke;
+}
+
+#top-nav a {
+  color: black;
+}
+
+#top-nav a:hover {
+  background-color: rgb(245, 192, 192);
+}
+#top-nav #logo:hover {
+  background-color: unset;
+}
+
+#logo {
+  font-family: cursive;
+  font-weight: lighter;
+  margin-left: 5%;
+}
