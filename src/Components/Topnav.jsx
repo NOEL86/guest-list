@@ -11,13 +11,15 @@ export default class Topnav extends Component {
           </a>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
             <li>
-              <a href="sass.html">Sass</a>
+              <a href="#">Plans</a>
             </li>
             <li>
-              <a href="badges.html">Components</a>
+              <a href="#">Contact Us</a>
             </li>
             <li>
-              <a href="collapsible.html">JavaScript</a>
+              <a href="#">
+                Profile <i className=" material-icons left">account_circle</i>
+              </a>
             </li>
           </ul>
         </div>
