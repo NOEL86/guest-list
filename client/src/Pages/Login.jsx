@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import firebase, { auth, provider } from "../firebase.js";
-import GoogleButton from "react-google-button";
+// import GoogleButton from "react-google-button";
 import { Link } from "react-router-dom";
 import "./login.css";
 class Login extends Component {
@@ -10,6 +10,7 @@ class Login extends Component {
     this.state = {
       email: "",
       password: "",
+
       error: {
         message: ""
       }
@@ -23,7 +24,7 @@ class Login extends Component {
       .then(userData => {
         // console.log("login", userData);
 
-        window.location.href = "/#/news";
+        window.location.href = "/#/main";
         // alert('success');
       })
       .catch(error => {

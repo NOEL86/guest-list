@@ -4,7 +4,7 @@ export default class AddGuest extends Component {
   render() {
     return (
       <div>
-        <div id="modal1" class="modal">
+        <div id="modal1" className="modal">
           <div className="modal-content">
             <h4>Modal Header</h4>
             <p>A bunch of text</p>
