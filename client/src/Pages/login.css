@@ -1,4 +1,31 @@
 #btn {
-  background-color: rgb(70, 67, 86);
-  margin: 2%;
+  background-color: rgb(245, 192, 192);
+  margin: 0 0 0 60%;
+  color: black;
+}
+
+#loginForm {
+  margin-top: 80px;
+  border: solid rgb(228, 215, 226) 1px;
+  /* box-shadow: rgb(228, 215, 226) 2px 2px; */
+  border-radius: 25px;
+  width: 500px;
+  text-align: center;
+  z-index: 999;
+  background-color: rgb(247, 236, 244);
+  padding: 3%;
+}
+#login {
+  background-image: url(/login.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+#signup {
+  background-image: url(/signup.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
 }

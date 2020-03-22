@@ -8,6 +8,7 @@ import Login from "./Pages/Login";
 import SignUp from "./Pages/SignUp";
 import Contact from "./Pages/Contact";
 import About from "./Pages/About";
+import Profile from "./Pages/Profile";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route exact path="/" component={Login} />
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/contact" component={Contact} />
+          <Route exact path="/profile" component={Profile} />
           <Route exact path="/about" component={About} />
         </Switch>
       </HashRouter>

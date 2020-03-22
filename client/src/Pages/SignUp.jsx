@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-
+import SignUpNav from "../Components/SignUpNav";
 import firebase, { auth, provider } from "../firebase";
 import "./login.css";
 class SignUp extends Component {
@@ -16,74 +16,75 @@ class SignUp extends Component {
       }
     };
   }
-  signUp() {
-    console.log("this.state", this.state);
-    const { email, password } = this.state;
-    const name = this.state.first_name + " " + this.state.last_name;
-    auth
-      .createUserWithEmailAndPassword(email, password)
-      .then(userData => {
-        userData.user.updateProfile({
-          displayName: name
-        });
-        console.log("signUp", userData);
-        alert("Success");
-        window.location.href = "/#/main";
-      })
-      .catch(error => {
-        this.setState({ error });
-      });
-    //   .then( function(user) {
-
-    //     user
-    //       .updateProfile({
-    //         displayName: name
-    //       })
-    //       .then()(
-    //       function() {
-    //         console.log("Success!!");
-    //       },
-    //       function(err) {
-    //         console.log(err);
-    //       }
-    //     )
-    //   );
-    // }
-  }
   // signUp() {
   //   console.log("this.state", this.state);
   //   const { email, password } = this.state;
   //   const name = this.state.first_name + " " + this.state.last_name;
-  //   auth.createUserWithEmailAndPassword(email, password).then(userData => {
-  //     userData
+  //   auth
+  //     .createUserWithEmailAndPassword(email, password)
+  //     .then(userData => {
+  //       userData.user.updateProfile({
+  //         displayName: name
+  //       });
+  //       console.log("signUp", userData);
+  //       alert("Success");
+  //       window.location.href = "/#/main";
+  //     })
+  //     .catch(error => {
+  //       this.setState({ error });
+  //     });
+  //   .then( function(user) {
+
+  //     user
   //       .updateProfile({
   //         displayName: name
   //       })
   //       .then()(
   //       function() {
-  //         // Update successful.
-  //         console.log("signUp", userData);
-  //         alert("Success");
-  //         window.location.href = "/#/main";
+  //         console.log("Success!!");
   //       },
-  //       function(error) {
-  //         this.setState({ error });
+  //       function(err) {
+  //         console.log(err);
   //       }
-  //     );
-  //   });
+  //     )
+  //   );
   // }
+  // }
+  signUp() {
+    console.log("this.state", this.state);
+    const { email, password } = this.state;
+    const name = this.state.first_name + " " + this.state.last_name;
+    auth.createUserWithEmailAndPassword(email, password).then(userData => {
+      userData
+        .updateProfile({
+          displayName: name
+        })
+        .then()(
+        function() {
+          // Update successful.
+          console.log("signUp", userData);
+          alert("Success");
+          window.location.href = "/#/main";
+        },
+        function(error) {
+          this.setState({ error });
+        }
+      );
+    });
+  }
 
   // componentDidMount() {}
 
   render() {
     return (
-      <div id="signUp">
+      <div id="signup">
+        <SignUpNav />
         <div className="row">
           <div className="col s4" />
-          <form className="col s8">
+          <form id="loginForm" className="col s6">
             <h5>New Here? Sign Up</h5>
             <div className="row">
-              <div className="input-field col s3">
+              <div className="input-field col s12">
                 <input
                   // placeholder="Placeholder"
                   id="first_name"
@@ -95,7 +96,7 @@ class SignUp extends Component {
                 />
                 <label for="first_name">First Name</label>
               </div>
-              <div className="input-field col s3">
+              <div className="input-field col s12">
                 <input
                   id="last_name"
                   type="text"
@@ -108,7 +109,7 @@ class SignUp extends Component {
               </div>
             </div>
             <div className="row">
-              <div className="input-field col s12 m4">
+              <div className="input-field col s12">
                 <label htmlFor="exampleInputEmail1">Email address</label>
                 <input
                   className="form-control"
@@ -119,9 +120,8 @@ class SignUp extends Component {
                   }
                 />
               </div>
-            </div>
-            <div className="row">
-              <div className="input-field col s12 m4">
+
+              <div className="input-field col s12">
                 <label htmlFor="exampleInputPassword1">Password</label>
                 <input
                   className="form-control"
@@ -143,7 +143,7 @@ class SignUp extends Component {
             >
               Submit
             </button>
-            <Link to="/">
+            {/* <Link to="/">
               <button
                 id="btn"
                 className="btn waves-effect waves-light"
@@ -152,7 +152,7 @@ class SignUp extends Component {
               >
                 Login
               </button>
-            </Link>
+            </Link> */}
           </form>
         </div>
         <div>{this.state.error.message}</div>

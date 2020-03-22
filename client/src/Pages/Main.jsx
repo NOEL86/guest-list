@@ -4,6 +4,7 @@ import Topnav from "../Components/Topnav";
 import AddGuest from "../Components/AddGuest";
 import fire from "../firebase";
 import firebase, { auth } from "../firebase.js";
+import M from "materialize-css";
 
 export default class Main extends Component {
   constructor(props) {
@@ -56,12 +57,19 @@ export default class Main extends Component {
     });
   }
 
+  componentDidMount() {
+    document.addEventListener("DOMContentLoaded", function() {
+      var elems = document.querySelectorAll(".modal");
+      M.Modal.init(elems);
+    });
+  }
+
   render() {
     return (
       <div>
+        <AddGuest />
         <Topnav />
         <Sidenav />
-        <AddGuest />
 
         <div className="row center">
           <div className="col s12 m8 l8">
@@ -116,7 +124,9 @@ export default class Main extends Component {
             </table>
           </div>
           <div className="col m2">
-            <button id="addButton">Add Guest</button>
+            <a id="addGuest" data-target="modalOne" className="btn-flat">
+              Add Guest
+            </a>
           </div>
         </div>
       </div>

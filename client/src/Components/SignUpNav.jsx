@@ -3,21 +3,7 @@ import { Link } from "react-router-dom";
 import firebase, { auth, provider } from "../firebase.js";
 import "./topnav.css";
 
-export default class Topnav extends Component {
-  logout = e => {
-    firebase
-      .auth()
-      .signOut()
-      .then(
-        function() {
-          console.log("Signed Out");
-          window.location.href = "/";
-        },
-        function(error) {
-          console.error("Sign Out Error", error);
-        }
-      );
-  };
+export default class SignUpNav extends Component {
   render() {
     return (
       <nav id="top-nav">
@@ -33,15 +19,13 @@ export default class Topnav extends Component {
               <Link to="/contact">Contact Us</Link>
             </li>
             <li>
-              <Link to="/profile">
-                Profile <i className=" material-icons left">account_circle</i>
-              </Link>
+              <Link to="/">Login</Link>
             </li>
-            <li>
+            {/* <li>
               <Link to="#" onClick={this.logout}>
                 Log Out
               </Link>
-            </li>
+            </li> */}
           </ul>
         </div>
       </nav>
