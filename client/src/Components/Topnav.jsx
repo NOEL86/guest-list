@@ -34,11 +34,17 @@ export default class Topnav extends Component {
             </li>
             <li>
               <Link to="/profile">
-                Profile <i className=" material-icons left">account_circle</i>
+                Profile{" "}
+                <i
+                  className="material-icons left modal-trigger"
+                  data-target="modalP"
+                >
+                  account_circle
+                </i>
               </Link>
             </li>
             <li>
-              <Link to="#" onClick={this.logout}>
+              <Link to="#" onClick={() => this.logout()}>
                 Log Out
               </Link>
             </li>

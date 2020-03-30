@@ -55,25 +55,45 @@ class SignUp extends Component {
     const { email, password } = this.state;
     const name = this.state.first_name + " " + this.state.last_name;
     auth.createUserWithEmailAndPassword(email, password).then(userData => {
-      userData
-        .updateProfile({
-          displayName: name
-        })
-        .then()(
-        function() {
-          // Update successful.
-          console.log("signUp", userData);
-          alert("Success");
-          window.location.href = "/#/main";
-        },
-        function(error) {
-          this.setState({ error });
-        }
-      );
+      // Handle Errors here.
+      // let errorCode = error.code;
+      // let errorMessage = error.message;
+
+      userData.user.updateProfile({
+        displayName: name
+      });
+
+      console.log("signUp", userData);
+      alert("Success");
+      window.location.href = "/#/main";
+
+      // if (errorCode == "auth/email-already-in-use") {
+      //   alert("email-already-in-use.");
+      // } else {
+      //   alert(errorMessage);
+      // }
+      // console.log("Error");
     });
+    // auth.createUserWithEmailAndPassword(email, password).then(userData => {
+    //   userData
+    //     .updateProfile({
+    //       displayName: name
+    //     })
+    //     .then()(
+    //     function() {
+    //       // Update successful.
+    //       console.log("signUp", userData);
+    //       alert("Success");
+    //       window.location.href = "/#/main";
+    //     },
+    //     function(error) {
+    //       this.setState({ error });
+    //     }
+    //   );
+    // });
   }
 
-  // componentDidMount() {}
+  componentDidUpdate() {}
 
   render() {
     return (
@@ -94,7 +114,7 @@ class SignUp extends Component {
                     this.setState({ first_name: event.target.value })
                   }
                 />
-                <label for="first_name">First Name</label>
+                <label htmlFor="first_name">First Name</label>
               </div>
               <div className="input-field col s12">
                 <input

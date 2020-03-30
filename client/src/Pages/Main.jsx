@@ -19,6 +19,7 @@ export default class Main extends Component {
     let that = this;
     auth.onAuthStateChanged(function(user) {
       if (user) {
+        // console.log(user);
         let id = user.uid;
         let email = user.email;
         let name = user.displayName;
@@ -124,7 +125,11 @@ export default class Main extends Component {
             </table>
           </div>
           <div className="col m2">
-            <a id="addGuest" data-target="modalOne" className="btn-flat">
+            <a
+              id="addGuest"
+              data-target="modalOne"
+              className="btn-flat modal-trigger"
+            >
               Add Guest
             </a>
           </div>
